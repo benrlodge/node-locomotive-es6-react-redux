@@ -1,6 +1,7 @@
 var path = require('path');
 var del = require('del');
 var gulp = require('gulp');
+var named = require('vinyl-named');
 var $ = require('gulp-load-plugins')();
 
 // set variable via $ gulp --type production
@@ -24,7 +25,7 @@ var dist = 'public/';
 // ];
 
 gulp.task('scripts', function() {
-  return gulp.src(webpackConfig.entry)
+  return gulp.src('./static/scripts/*.js')
     .pipe($.webpack(webpackConfig))
     .pipe(isProduction ? $.uglify() : $.util.noop())
     .pipe(gulp.dest(dist + 'scripts/'))

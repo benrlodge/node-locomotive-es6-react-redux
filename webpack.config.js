@@ -1,13 +1,21 @@
+var path = require('path');
+
 module.exports.getConfig = function(type) {
 
   var isDev = type === 'development';
 
   var config = {
-    entry: './static/scripts/main.js',
+
+    entry: {
+      public_main: './static/scripts/public_main.js',
+      dashboard_main: './static/scripts/dashboard_main.js'
+    },
+
     output: {
       path: __dirname,
-      filename: 'main.js'
+      filename: '[name].js'
     },
+
     debug : isDev,
     module: {
       loaders: [{
