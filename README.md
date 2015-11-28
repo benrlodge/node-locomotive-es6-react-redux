@@ -8,7 +8,7 @@ What you've got here is a front-end web-app starter kit built along side the Loc
 
 To those less familiar with Locomotive.js, you could say Locomotive.js is to Node.js what Ruby on Rails is to Ruby, that is, a framework that support MVC patterns, RESTful routes, and convention over configuration.
 
-Locomotive.js is a great project that allows you start write node apps fast, without worrying about all the boilerplate involved. However, it leaves the front-end up to you.
+Locomotive.js is a great project that allows you start writing node apps fast, without worrying about much boilerplate. However, it leaves the front-end up to you.
 
 Therefore, I started this project with the same intention that Locomotive.js was for the backend, but for the the front-end.
 
@@ -20,7 +20,10 @@ Static assets are packaged together with Gulp and Webpack. Two javascript entry 
 
 Webpack enables you to write ES6 using Babel.
 
-### Stylus
+### HTML
+Locomotive.js, as with Express.js, comes preconfigured using EJS for templating, but Jade is so much better, so I'm using it here. Under the `/app/views` directory you will find a directory for layouts including a `public_layout` and an `app_layout`. Normal public pages are stored under `app/views/pages` which corresponds with the `pages` controller, and partials (eg footer, header) is stored under `app/views/partials`.
+
+### CSS
 
 CSS is written using Stylus. A directory structure has been started for your convenience including base and layout styles, a variables file to import, and a component directory for your React components.
 
