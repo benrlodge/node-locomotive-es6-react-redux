@@ -5,7 +5,7 @@ block content
     .row
       .col-md-12
         h1.text-center Login
-        if messages.success.lenght > 0
+        if messages.success.length > 0
           .alert.alert-info.block-roomy
             | #{messages.success}
         form(action='/user/login', method='GET')
