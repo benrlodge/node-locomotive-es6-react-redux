@@ -16,7 +16,7 @@ It embraces modern development tools including Webpack, ES6, React, and Redux.
 
 ### Gulp, Webpack and ES6
 
-Static assets are packaged together with Gulp and Webpack. Two javascript entry points are available, public_mainfor the public aspect of the website, andapp_mainfor the app that is accessed by logging in.
+Static assets are packaged together with Gulp and Webpack. Two javascript entry points are available, `public_main` for the public aspect of the website, and `app_main` for the app that is accessed by logging in.
 
 Webpack enables you to write ES6 using Babel.
 
