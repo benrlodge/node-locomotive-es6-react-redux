@@ -1,5 +1,6 @@
 var express = require('express')
-  , poweredBy = require('connect-powered-by');
+  , poweredBy = require('connect-powered-by')
+  , session = require('express-session')
 
 module.exports = function() {
   // Use middleware.  Standard [Connect](http://www.senchalabs.org/connect/)
@@ -14,6 +15,9 @@ module.exports = function() {
   this.use(express.static(__dirname + '/../../public'));
   this.use(express.bodyParser());
   this.use(express.methodOverride());
+  this.use(express.cookieParser('keyboardKittyCatEatsTheSpicyChickeFingersAndDanciesTheChickenDance'));
+  this.use(express.session());
+  this.use(session({secret: 'keyboardKittyCatEatsTheSpicyChickeFingersAndDanciesTheChickenDance'}));
   this.use(this.router);
   this.use(express.errorHandler());
 }
