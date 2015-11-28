@@ -10,11 +10,26 @@ pagesController.main = function() {
 
 pagesController.register = function() {
   this.title = 'Register';
+
+  this.messages = {
+    error: this.req.flash('error')
+  }
+
   this.render();
 }
 
 pagesController.login = function() {
   this.title = 'Login';
+
+  this.messages = {
+    success: this.req.flash('success')
+  }
+
+  this.render();
+}
+
+pagesController.success = function() {
+  this.title = 'Success';
   this.render();
 }
 

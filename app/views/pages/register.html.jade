@@ -8,8 +8,12 @@ block content
         form(action='/user/register', method='POST')
           .form-group
             label(for='email') Email address
-            input#username.form-control(name='username', type='email', placeholder='Email')
+            input#username.form-control(name='username', type='email', placeholder='Email' autofocus)
           .form-group
             label(for='password') Password
             input#password.form-control(name='password', type='password', placeholder='Password')
           button.btn.btn-default(type='submit') Submit
+          
+          if messages.error.length > 0
+            .alert.alert-danger.block-roomy
+              | #{messages.error}
