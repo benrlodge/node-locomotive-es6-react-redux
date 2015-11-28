@@ -1,7 +1,8 @@
 var locomotive = require('locomotive');
 var Controller = locomotive.Controller;
-var bcrypt = require('bcrypt');
+var genHash = require('../utils/genHash');
 var User = require('../models/user');
+var bcrypt = require('bcrypt');
 
 var userController = new Controller();
 
@@ -39,37 +40,43 @@ userController.register = function() {
   var password = this.param('password');
   var created_timestamp = Date.now();
 
-  var hash = bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash('B4c0/\/', salt, function(err, hash) {
-          var user = new User({
-            username: username,
-            password: hash,
-            created_at: created_timestamp
-          });
+  genHash(function(err, hash) {
+    if (err) {
+      req.flash('error', 'Sorry we are having technical difficulties generating a secure hash for your password.');
+      _this.redirect('/register');
+      return;
+    }
 
-          user.trySave(function(err) {
-            var message;
-            if (err) {
-              if (err.errors.username.properties.type === 'Duplicate value') {
-                message = 'Sorry, but that username is already taken.'
-              }
-              console.log(err.kind);
-              // to do: pass specific error message to user
-              req.flash('error', message);
-              // to do: pass username back to register form
-              _this.redirect('/register');
-            }
-            else {
-              req.flash('success', 'You have successfully registered. Now you can login.')
-              // to do: pass login name into form
-              _this.redirect('/login');
-            }
+    var user = new User({
+      username: username,
+      password: hash,
+      created_at: created_timestamp
+    });
 
-          });
-        });
+    user.trySave(function(err) {
+      var message;
+      if (err) {
+        if (err.errors.username.properties.type === 'Duplicate value') {
+          message = 'Sorry, but that username is already taken.'
+        }
 
-      });
-  };
+        // to do: pass specific error message to user
+        req.flash('error', message);
+        // to do: pass username back to register form
+        _this.redirect('/register');
+      }
+
+      else {
+        req.flash('success', 'You have successfully registered. Now you can login.')
+        // to do: pass login name into form
+        _this.redirect('/login');
+      }
+
+    });  
+
+  });
+  
+};
 
 
 module.exports = userController;
