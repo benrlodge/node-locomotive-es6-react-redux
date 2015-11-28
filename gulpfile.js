@@ -32,6 +32,17 @@ gulp.task('scripts', function() {
     .pipe($.size({ title : 'scripts' }))
 });
 
+gulp.task('vendor-scripts', function(){
+  return gulp.src([
+    './node_modules/bootstrap/dist/js/bootstrap.js'
+  ])
+    .pipe($.concat('vendor.js'))
+    .pipe(isProduction ? $.uglify() : $.util.noop())
+    .pipe(gulp.dest(dist + 'scripts/'))
+    .pipe($.size({ title : 'vendor-scripts' }))
+
+});
+
 gulp.task('styles',function(cb) {
   // convert stylus to css
   return gulp.src(app + 'stylus/main.styl')
@@ -44,6 +55,16 @@ gulp.task('styles',function(cb) {
     // .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
     .pipe(gulp.dest(dist + 'stylesheets/'))
     .pipe($.size({ title : 'css' }))
+});
+
+gulp.task('vendor-styles', function(){
+  return gulp.src([
+    './node_modules/bootstrap/dist/css/bootstrap.css',
+    './node_modules/font-awesome/css/font-awesome.css'
+  ])
+    .pipe($.concat('vendor.css'))
+    .pipe(gulp.dest(dist + 'stylesheets/'))
+    .pipe($.size({ title : 'vendor-css' }))
 });
 
 // copy images
@@ -70,5 +91,5 @@ gulp.task('default', ['images', 'scripts', 'styles', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['images', 'scripts', 'styles']);
+  gulp.start(['images', 'scripts', 'vendor-scripts', 'styles', 'vendor-styles']);
 });
