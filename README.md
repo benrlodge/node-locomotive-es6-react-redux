@@ -14,6 +14,6 @@ so you can separate the scripts for your public site, and the scripts for
 your app's dashboard.
 
 ### To Do
- [ ] User model with MongoDB and Mongoose
- [ ] Login/Register/Session functionality
- [ ] Basic dashboard using React and Redux
+ * User model with MongoDB and Mongoose
+ * Login/Register/Session functionality
+ * Basic dashboard using React and Redux
