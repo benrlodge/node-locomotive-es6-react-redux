@@ -4,7 +4,17 @@ var locomotive = require('locomotive')
 var pagesController = new Controller();
 
 pagesController.main = function() {
-  this.title = 'Locomotive';
+  this.title = 'Home';
+  this.render();
+}
+
+pagesController.register = function() {
+  this.title = 'Register';
+  this.render();
+}
+
+pagesController.login = function() {
+  this.title = 'Login';
   this.render();
 }
 
