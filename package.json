@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "bcrypt": "^0.8.5",
+    "bcrypt-nodejs": "0.0.3",
     "bootable": "0.2.x",
     "bootable-environment": "0.2.x",
     "connect-flash": "^0.1.1",
