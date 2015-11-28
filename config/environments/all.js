@@ -1,4 +1,12 @@
 var util = require('util');
+var mongoose = require('mongoose');
+
+var dbPath = process.env.MONGO_DB_URI || 'mongodb://localhost:27017/my_awesome_app';
+mongoose.connect(dbPath);
+
+mongoose.connection.on('connected', function () {
+  console.log('Mongoose default connection open');
+});
 
 module.exports = function() {
   // Warn of version mismatch between global "lcm" binary and local installation

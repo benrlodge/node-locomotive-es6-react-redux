@@ -8,8 +8,10 @@
     "connect-powered-by": "0.1.x",
     "ejs": "0.8.x",
     "express": "3.x.x",
+    "express-session": "^1.12.1",
     "jade": "^1.11.0",
     "locomotive": "0.4.x",
+    "mongoose": "^4.2.2",
     "react": "^0.14.2",
     "react-dom": "^0.14.2"
   },
