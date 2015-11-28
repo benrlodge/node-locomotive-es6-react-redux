@@ -1,6 +1,7 @@
 var express = require('express')
   , poweredBy = require('connect-powered-by')
   , session = require('express-session')
+  , flash = require('connect-flash');
 
 module.exports = function() {
   // Use middleware.  Standard [Connect](http://www.senchalabs.org/connect/)
@@ -18,6 +19,7 @@ module.exports = function() {
   this.use(express.cookieParser('keyboardKittyCatEatsTheSpicyChickeFingersAndDanciesTheChickenDance'));
   this.use(express.session());
   this.use(session({secret: 'keyboardKittyCatEatsTheSpicyChickeFingersAndDanciesTheChickenDance'}));
+  this.use(flash());
   this.use(this.router);
   this.use(express.errorHandler());
 }
