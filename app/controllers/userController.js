@@ -47,11 +47,15 @@ userController.register = function() {
             created_at: created_timestamp
           });
 
-          user.save(function(err) {
+          user.trySave(function(err) {
+            var message;
             if (err) {
-              console.log('error: ', err);
+              if (err.errors.username.properties.type === 'Duplicate value') {
+                message = 'Sorry, but that username is already taken.'
+              }
+              console.log(err.kind);
               // to do: pass specific error message to user
-              req.flash('error', 'Error with registration.');
+              req.flash('error', message);
               // to do: pass username back to register form
               _this.redirect('/register');
             }

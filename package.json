@@ -14,6 +14,7 @@
     "jade": "^1.11.0",
     "locomotive": "0.4.x",
     "mongoose": "^4.2.2",
+    "mongoose-beautiful-unique-validation": "^1.1.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2"
   },

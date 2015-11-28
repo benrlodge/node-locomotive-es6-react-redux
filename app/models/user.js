@@ -11,6 +11,9 @@ var userSchema = new Schema({
   updated_at: Date
 });
 
+// turns duplicate errors into regular Mongoose validation errors.
+userSchema.plugin(require('mongoose-beautiful-unique-validation'));
+
 // the schema is useless so far
 // we need to create a model using it
 var User = mongoose.model('User', userSchema);
