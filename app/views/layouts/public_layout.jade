@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/vendor.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    title #{title}
+    block head
+    
+  body
+    #public_content.narrow-container
+      block content
+
+    script(src='/scripts/public_main.js')
