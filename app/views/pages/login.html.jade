@@ -5,9 +5,9 @@ block content
     .row
       .col-md-12
         h1.text-center Login
-        if messages.success.length > 0
+        if messages.info.length > 0
           .alert.alert-info.block-roomy
-            | #{messages.success}
+            | #{messages.info}
         form(action='/user/login', method='GET')
           .form-group
             label(for='email') Email address
@@ -17,3 +17,6 @@ block content
             input#password.form-control(name='password', type='password', placeholder='Password')
           button.btn.btn-default(type='submit') Submit
           
+          if messages.error.length > 0
+            .alert.alert-danger.block-roomy
+              | #{messages.error}

@@ -20,17 +20,17 @@ pagesController.register = function() {
 
 pagesController.login = function() {
   this.title = 'Login';
-
+  
   this.messages = {
-    success: this.req.flash('success')
+    info: this.req.flash('info'),
+    error: this.req.flash('error'),
   }
 
   this.render();
 }
 
-pagesController.success = function() {
-  this.title = 'Success';
-  this.render();
+pagesController.logout = function() {
+  this.redirect('/login');
 }
 
 module.exports = pagesController;

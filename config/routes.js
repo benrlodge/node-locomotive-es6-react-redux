@@ -6,12 +6,19 @@
 // Guide on [routing](http://locomotivejs.org/guide/routing.html) for additional
 // information.
 module.exports = function routes() {
+  
+  // Public facing pages
   this.root('pages#main');
-
+  
   this.match('register', 'pages#register');
   this.match('login', 'pages#login');
 
+  // User Login and Registration
   this.match('user/register', 'user#register', { via: 'POST'});
-  this.match('user/login', 'user#login', { via: 'GET'});
+  this.match('user/login', 'user#login');
+  this.match('logout', 'user#logout');
+  
+  // App
+  this.match('app', 'app#main');
 
 }
