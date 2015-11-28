@@ -12,3 +12,8 @@ A front-end setup for [http://locomotivejs.org/](locomotive.js).
 The webpack config uses two entry points `public_main.js` and `dashboard_main.js`,
 so you can separate the scripts for your public site, and the scripts for
 your app's dashboard.
+
+### To Do
+ [ ] User model with MongoDB and Mongoose
+ [ ] Login/Register/Session functionality
+ [ ] Basic dashboard using React and Redux
