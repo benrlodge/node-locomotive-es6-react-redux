@@ -12,7 +12,7 @@ Locomotive.js is a great project that allows you start writing node apps fast, w
 
 Therefore, I started this project with the same intention that Locomotive.js was for the backend, but for the the front-end.
 
-It embraces modern development tools including Webpack, ES6, React, and Redux.
+It embraces modern development tools including Webpack, Gulp, and ES6.
 
 ### Gulp, Webpack and ES6
 
