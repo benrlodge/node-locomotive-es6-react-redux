@@ -40,7 +40,13 @@ gulp.task('vendor-scripts', function(){
     .pipe(isProduction ? $.uglify() : $.util.noop())
     .pipe(gulp.dest(dist + 'scripts/'))
     .pipe($.size({ title : 'vendor-scripts' }))
+});
 
+// fonts
+gulp.task('fonts', function() {
+  return gulp.src([
+    './node_modules/font-awesome/fonts/fontawesome-webfont.*'
+  ]).pipe(gulp.dest(dist + 'fonts/'));
 });
 
 gulp.task('styles',function(cb) {
@@ -91,5 +97,5 @@ gulp.task('default', ['images', 'scripts', 'styles', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['images', 'scripts', 'vendor-scripts', 'styles', 'vendor-styles']);
+  gulp.start(['images', 'scripts', 'vendor-scripts', 'styles', 'vendor-styles', 'fonts']);
 });
