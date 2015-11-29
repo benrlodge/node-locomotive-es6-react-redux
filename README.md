@@ -1,6 +1,6 @@
 # node-locomotive-webkit-gulp-es6
 
-A front-end setup for [http://www.locomotivejs.org/](locomotive.js).
+A front-end setup for [locomotive.js](http://www.locomotivejs.org/).
 
 ### About and Overview
 
