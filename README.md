@@ -1,4 +1,4 @@
-# node-locomotive-es6-react-redux
+# node-locomotive-webkit-gulp-es6
 
 A front-end setup for [http://locomotivejs.org/](locomotive.js).
 
@@ -16,26 +16,16 @@ It embraces modern development tools including Webpack, ES6, React, and Redux.
 
 ### Gulp, Webpack and ES6
 
-Static assets are packaged together with Gulp and Webpack. Two javascript entry points are available, `public_main` for the public aspect of the website, and `app_main` for the app that is accessed by logging in.
-
-Webpack enables you to write ES6 using Babel.
+Static assets are packaged together with Gulp and Webpack. Two javascript entry points are available, `public_main` for the public aspect of the website, and `app_main` for the app that is accessed by registering an account and logging in. Webpack enables you to write ES6 using Babel.
 
 ### HTML
 Locomotive.js, as with Express.js, comes preconfigured using EJS for templating, but Jade is so much better, so I'm using it here. Under the `/app/views` directory you will find a directory for layouts including a `public_layout` and an `app_layout`. Normal public pages are stored under `app/views/pages` which corresponds with the `pages` controller, and partials (eg footer, header) is stored under `app/views/partials`.
 
 ### CSS
-
 CSS is written using Stylus. A directory structure has been started for your convenience including base and layout styles, a variables file to import, and a component directory for your React components.
 
+### Fonts
+Font-awesome is included in the gulp build.
+
 ### Login and Registration
-
 Includes a simple login/registration using Mongooose, and MongoDB.
-
-### React and Redux
-
-The app portion is a SPA that uses React and Redux.
-
-### To Do
- * ~~User model with MongoDB and Mongoose~~
- * Login/Register/Session functionality
- * Basic dashboard using React and Redux

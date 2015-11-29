@@ -7,8 +7,8 @@ module.exports.getConfig = function(type) {
   var config = {
 
     entry: {
-      public_main: './static/scripts/public_main.js',
-      dashboard_main: './static/scripts/app_main.js'
+      public_main: './static/scripts/public/public_main.js',
+      app_main: './static/scripts/app/app_main.js'
     },
 
     output: {
